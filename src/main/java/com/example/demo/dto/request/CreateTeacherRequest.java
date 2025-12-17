@@ -2,6 +2,9 @@ package com.example.demo.dto.request;
 
 
 import com.example.demo.emuns.Grade;
+import com.example.demo.entity.Subject;
+import jakarta.persistence.ManyToMany;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
 import lombok.Data;
 import jakarta.validation.constraints.NotNull;
@@ -12,14 +15,11 @@ import java.util.List;
 @Builder
 public class CreateTeacherRequest {
 
-    private Long id;
-
     @NotNull(message = "teacher name required")
-
     private String name;
 
+    @NotEmpty(message = "at least one subject required")
     private List<CreateSubjectRequest> subjects;
-
 
     @NotNull(message = "grade required")
     private Grade grade;
