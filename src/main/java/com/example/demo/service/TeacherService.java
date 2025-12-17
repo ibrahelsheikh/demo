@@ -1,13 +1,15 @@
 package com.example.demo.service;
 
 
-import com.example.demo.dto.request.CreateSubjectRequest;
 import com.example.demo.dto.request.CreateTeacherRequest;
-import com.example.demo.entity.Teacher;
+
+import java.util.List;
+import java.util.UUID;
 
 
 public interface TeacherService {
-    Long createTeacher(CreateTeacherRequest createTeacherRequest);
+    UUID createTeacher(CreateTeacherRequest createTeacherRequest);
+    List<UUID> getAllTeachers();
 
 }
 

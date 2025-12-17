@@ -1,17 +1,14 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.request.CreateSubjectRequest;
 import com.example.demo.dto.request.CreateTeacherRequest;
-import com.example.demo.entity.Teacher;
-import com.example.demo.service.TeacherService;
 import com.example.demo.serviceImpl.TeacherServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/teachers")
@@ -25,8 +22,8 @@ public class home {
             @Valid @RequestBody CreateTeacherRequest createTeacherRequest
 
     ) {
-        Long savedTeacher = teacherService.createTeacher(createTeacherRequest);
-        return ResponseEntity.created(URI.create("/teachers/" + savedTeacher.getId())).build();
+        UUID savedTeacherId = teacherService.createTeacher(createTeacherRequest);
+        return ResponseEntity.created(URI.create("/teachers/" + savedTeacherId.getClass())).build();
     }
 
 
