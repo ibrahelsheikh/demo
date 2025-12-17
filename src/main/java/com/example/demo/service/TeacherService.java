@@ -7,9 +7,7 @@ import com.example.demo.entity.Teacher;
 
 
 public interface TeacherService {
-
-
-    Teacher createTeacher(CreateTeacherRequest createTeacherRequest);
+    Long createTeacher(CreateTeacherRequest createTeacherRequest);
 
 }
 
