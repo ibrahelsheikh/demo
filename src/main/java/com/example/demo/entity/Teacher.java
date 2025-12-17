@@ -17,4 +17,9 @@ public class Teacher {
     @Column(nullable = false)
     private String name;
 
+
+
+
+
+
 }
