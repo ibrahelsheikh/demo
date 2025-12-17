@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 
+import com.example.demo.emuns.Grade;
 import com.example.demo.emuns.Semester;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -27,5 +28,8 @@ public class Subject {
     @Enumerated(EnumType.STRING)
     @NotNull(message = "semester required")
     private Semester semester;
+
+    @Column(nullable = false)
+    private Grade grade;
 
 }
