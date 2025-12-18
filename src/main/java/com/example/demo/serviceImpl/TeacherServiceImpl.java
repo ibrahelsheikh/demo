@@ -20,6 +20,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     private final TeacherRepository teacherRepository;
     private final SubjectRepository subjectRepository;
+    private final TeacherMapper teacherMapper;
 
     @Override
     public Long createTeacher(@Valid CreateTeacherRequest request) {
@@ -33,7 +34,7 @@ public class TeacherServiceImpl implements TeacherService {
             );
         }
 
-        Teacher teacher = TeacherMapper.toEntity(request, subjects);
+        Teacher teacher = teacherMapper.toEntity(request, subjects);
 
         return teacherRepository.save(teacher).getId();
     }

@@ -9,14 +9,16 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/teachers")
+@RequestMapping("/")
 @RequiredArgsConstructor
+@Validated
 public class home {
 
     private final TeacherServiceImpl teacherService;
@@ -42,6 +44,17 @@ public class home {
         return ResponseEntity
                 .created(URI.create("/subjects/" + savedSubjectId))
                 .build();
+    }
+
+    @GetMapping("/getAllSubjects")
+    public ResponseEntity<?> getAllSubjects() {
+        return new ResponseEntity<>(subjectService.getAllSubjects(), HttpStatus.OK);
+    }
+
+
+    @GetMapping("/getALLTeachers")
+    public ResponseEntity<?> getAllTeachers() {
+        return new ResponseEntity<>(teacherService.getAllTeachers(), HttpStatus.OK);
     }
 
 
