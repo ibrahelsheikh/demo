@@ -5,6 +5,7 @@ import com.example.demo.emuns.Semester;
 
 
 public record UpdateSubjectRequest(
+        Long id,
         String name,
         Semester semester,
         Grade grade

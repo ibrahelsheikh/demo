@@ -66,11 +66,19 @@ public class TeacherServiceImpl implements TeacherService {
 
 
     @Override
-    public Teacher updateTeacher(UpdateTeacherRequest updateTeacherRequest){
+    public Teacher updateTeacher(UpdateTeacherRequest request) {
 
+        Long teacherId = request.id();
 
+        Teacher teacher = teacherRepository.findById(teacherId)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Teacher not found with ID: " + teacherId
+                ));
 
-        return null;
+        teacherMapper.updateTeacherFromRequest(request, teacher);
+
+        return teacherRepository.save(teacher);
     }
 
 }

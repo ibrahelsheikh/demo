@@ -1,6 +1,7 @@
 package com.example.demo.mapper;
 
 import com.example.demo.dto.request.CreateTeacherRequest;
+import com.example.demo.dto.request.UpdateTeacherRequest;
 import com.example.demo.dto.resonpse.GetAllTeachersResponse;
 import com.example.demo.dto.resonpse.SubjectDto;
 import com.example.demo.dto.resonpse.TeacherDto;
@@ -41,6 +42,14 @@ public class TeacherMapper {
 
         return new GetAllTeachersResponse(teacherDtos);
     }
+
+
+    public void updateTeacherFromRequest(UpdateTeacherRequest request, Teacher teacher) {
+        teacher.setName(request.name());
+        teacher.setSubjects(request.subjectIds());
+        teacher.setGrades(request.grades());
+    }
+
 
 
 
