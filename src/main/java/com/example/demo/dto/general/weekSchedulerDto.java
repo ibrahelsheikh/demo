@@ -1,11 +1,8 @@
-package com.example.demo.dto;
-
-import com.example.demo.dto.general.DaySchedulerDto;
+package com.example.demo.dto.general;
 
 import java.util.List;
 
 public record weekSchedulerDto (
         List<DaySchedulerDto> days
-
 ){
 }

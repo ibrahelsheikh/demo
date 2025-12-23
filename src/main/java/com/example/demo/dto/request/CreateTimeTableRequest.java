@@ -7,6 +7,8 @@ import java.util.List;
 public record CreateTimeTableRequest (
 
 
+
+
         List<DaySchedulerDto> DaysScheduler
 
 ){
