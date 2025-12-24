@@ -21,15 +21,15 @@ public class Lesson {
 
     @ManyToOne
     @Column(nullable = false)
-    private Long subjectId;
+    private Subject subject;
 
     @ManyToOne
     @Column(nullable = false)
-    private Long teacherId;
+    private Teacher teacher;
 
-    // Many lessons belong to one day
+
     @ManyToOne
-    @JoinColumn(name = "day_schedule_id")
+    @JoinColumn(nullable = false)
     private DaySchedule daySchedule;
 
 }
