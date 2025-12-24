@@ -19,11 +19,13 @@ public class Lesson {
     @Column(nullable = false)
     private LocalTime endTime;
 
+    @ManyToOne
     @Column(nullable = false)
-    private Long subjectId; // You can replace with @ManyToOne if Subject entity exists
+    private Long subjectId;
 
+    @ManyToOne
     @Column(nullable = false)
-    private Long teacherId; // You can replace with @ManyToOne if Teacher entity exists
+    private Long teacherId;
 
     // Many lessons belong to one day
     @ManyToOne
