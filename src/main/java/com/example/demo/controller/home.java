@@ -141,10 +141,10 @@ public class home {
     public ResponseEntity<Void> createWeeklySchedule(
             @RequestBody CreateWeeklyScheduleRequest request
     ) {
-        WeeklySchedule id = weekSchedulerService.create(request);
+        WeeklySchedule weeklySchedule = weekSchedulerService.create(request);
 
         return ResponseEntity
-                .created(URI.create("/weekly-schedules/" + id))
+                .created(URI.create("/weekly-schedules/" + weeklySchedule.getId()))
                 .build();
     }
 
