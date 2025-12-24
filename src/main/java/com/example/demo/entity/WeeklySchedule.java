@@ -21,6 +21,6 @@ public class WeeklySchedule {
     private LocalDate date;
 
     @OneToMany(mappedBy = "weeklySchedule", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<DaySchedule> days;
+    private List<DaySchedule> daysSchedule;
 
 }
