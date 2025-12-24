@@ -32,7 +32,6 @@ public class WeekSchedulerServiceImpl implements WeekSchedulerService {
 //
 //        lesson.setSubject(subject);
 //        lesson.setTeacher(teacher);
-//
 
 
         return null;
