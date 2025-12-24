@@ -9,13 +9,11 @@ import com.example.demo.service.SubjectService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Validated
 public class SubjectServiceImpl implements SubjectService {
 
     private final SubjectRepository subjectRepository;

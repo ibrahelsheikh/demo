@@ -2,16 +2,22 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.request.CreateSubjectRequest;
 import com.example.demo.dto.request.CreateTeacherRequest;
+import com.example.demo.dto.request.CreateWeeklyScheduleRequest;
 import com.example.demo.dto.request.UpdateTeacherRequest;
+import com.example.demo.dto.resonpse.WeeklyScheduleResponse;
+import com.example.demo.entity.WeeklySchedule;
 import com.example.demo.service.SubjectService;
 import com.example.demo.service.TeacherService;
+import com.example.demo.service.WeekSchedulerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Pageable;
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -20,6 +26,8 @@ public class home {
 
     private final TeacherService teacherService;
     private final SubjectService subjectService;
+    private final WeekSchedulerService weekSchedulerService;
+
 
     @PostMapping("/teachers")
     public ResponseEntity<URI> CreateTeacher(
@@ -133,13 +141,30 @@ public class home {
     public ResponseEntity<Void> createWeeklySchedule(
             @RequestBody CreateWeeklyScheduleRequest request
     ) {
-        Long id = weekSchedulerService.create(request);
+        WeeklySchedule id = weekSchedulerService.create(request);
 
         return ResponseEntity
                 .created(URI.create("/weekly-schedules/" + id))
                 .build();
     }
 
+
+    @GetMapping("/weekly-schedules")
+    public ResponseEntity<List<WeeklyScheduleResponse>> getAllWeeklySchedules(Pageable pageable) {
+        return ResponseEntity.ok(
+                weekSchedulerService.getAllWeeklySchedules(pageable)
+        );
+    }
+
+
+    @PutMapping("/weekly-schedules/{scheduleId}")
+    public ResponseEntity<?> updateWeeklySchedule(
+            @PathVariable Long scheduleId,
+            @RequestBody CreateWeeklyScheduleRequest request
+    ) {
+        weekSchedulerService.updateWeeklySchedule(scheduleId, request);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 
 
