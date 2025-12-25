@@ -8,11 +8,11 @@
         <version>4.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>org.example</groupId>
+    <groupId>org.megadev</groupId>
     <artifactId>SchoolSchedule</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>demo</description>
+    <name>School Schedule</name>
+    <description>School Schedule</description>
     <url/>
     <licenses>
         <license/>
