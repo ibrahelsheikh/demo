@@ -27,11 +27,6 @@ public class Subject {
     @NotNull(message = "name required")
     private String name;
 
-    @Column(nullable = false,name="SEMESTER")
-    @CollectionTable(
-            name = "subject_semesters",
-            joinColumns = @JoinColumn(name = "subject_id")
-    )
     @Enumerated(EnumType.STRING)
     @NotNull(message = "semester required")
     private List<Semester> semester;

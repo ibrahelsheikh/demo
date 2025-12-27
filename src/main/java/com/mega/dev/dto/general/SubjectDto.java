@@ -7,6 +7,6 @@ import com.mega.dev.emuns.Semester;
 public record SubjectDto(
         Long id,
         String name,
-        Semester semester,
+        java.util.@jakarta.validation.constraints.NotNull(message = "semester required") List<Semester> semester,
         Grade grade
 ) {}

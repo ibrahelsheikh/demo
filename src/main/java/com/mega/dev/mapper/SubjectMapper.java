@@ -7,6 +7,7 @@ import com.mega.dev.entity.Subject;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,7 +19,7 @@ public  class SubjectMapper {
     public Subject toEntity(CreateSubjectRequest request) {
         Subject subject = new Subject();
         subject.setName(request.getName());
-        subject.setSemester(request.getSemester());
+        subject.setSemester(Collections.singletonList(request.getSemester()));
         subject.setGrade(request.getGrade());
         return subject;
     }
